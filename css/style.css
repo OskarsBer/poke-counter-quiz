@@ -23,6 +23,14 @@ span{
   font-size: 12px;
 }
 
+/* #counters{
+  text-align: center;
+  margin: 0 auto;
+  color: rgb(185, 4, 4);
+  font-family: Sans-Serif;
+  font-size: 13px;
+} */
+
 #typeName{
   margin: 50px auto;
   color: rgb(0, 0, 0);

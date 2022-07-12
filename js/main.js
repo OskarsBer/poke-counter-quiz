@@ -1,7 +1,3 @@
-let data;
-
-let counterArr = [];
-
 document.getElementById('normal').addEventListener('click', function () {
   buttonClick('normal');
 })
@@ -57,55 +53,48 @@ document.getElementById('fairy').addEventListener('click', function () {
   buttonClick('fairy');
 })
 
-//document.querySelector('button').addEventListener('click', buttonClick)
-
+// Reload page on next page click
 document.getElementById('nextGuess').addEventListener('click', function reloadPage() {
   window.location.reload()
 })
 
+let data;
+let counterArr = [];
 
-async function makeReq() {
-  
+async function makeReq() {  
   const randomNum = Math.floor(Math.random() * 18);
   console.log(randomNum);
-
+  try {
   const res = await fetch(`https://pokeapi.co/api/v2/type/${randomNum}`);
   data = await res.json();
 
   console.log(data);
 
   let counters = data.damage_relations.double_damage_from;
- 
-
 
   counters.forEach(element => {
-
-    // console.log(element.name);
     counterArr.push(element.name);
-
-    // element.name === document.getElementById((element.name)).id
-    // document.getElementById(element.name).classList.add("counterClass")
-    
   });
   
   document.querySelector("#typeName").textContent = data.name;
-
+  }catch(error){
+    console.log(error)
+  }
 }
 
 makeReq()
-
 
 function buttonClick(type) {
     
     for(let i = 0; i < counterArr.length; i++) {
       if(counterArr[i] === type) {
-        // console.log('You win!');
-        document.querySelector('h3').innerHTML = 'Correct answer!';
+        // console.log('Correct');
+        document.querySelector('h3').innerText = 'Correct answer!';
         document.getElementById('nextGuess').classList.remove('invisible');
         return;
     }else{
-        // console.log('wrong dud');
-        document.querySelector('h3').innerHTML = 'Nope!'
+        // console.log('Wrong');
+        document.querySelector('h3').innerText = 'Wrong answer!'
     }
   }
 }
