@@ -62,7 +62,7 @@ let data;
 let counterArr = [];
 
 async function makeReq() {  
-  const randomNum = Math.floor(Math.random() * 18);
+  const randomNum = Math.floor(Math.random() * 18) + 1;
   console.log(randomNum);
   try {
   const res = await fetch(`https://pokeapi.co/api/v2/type/${randomNum}`);
