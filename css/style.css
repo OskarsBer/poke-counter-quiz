@@ -158,3 +158,9 @@ span{
 #fairy{
   background-color: rgb(240, 182, 188);
 }
+
+@media(max-width: 768px) {
+  .container {
+  max-width: 90%;
+  }
+}
