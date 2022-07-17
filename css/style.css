@@ -161,6 +161,14 @@ span{
 
 @media(max-width: 768px) {
   .container {
-  max-width: 90%;
+    max-width: 90%;
+  }
+
+  .buttonContainer  {
+    padding: 8px 10%;    
+  }
+
+  .typeButton{
+    margin: 7px;
   }
 }
