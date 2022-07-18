@@ -58,25 +58,26 @@ document.getElementById('nextGuess').addEventListener('click', function reloadPa
   window.location.reload()
 })
 
-let data;
+// List of every pokemon type that deals double damage against current displayed pokemon type
 let counterArr = [];
 
 async function makeReq() {  
+  // Randomly choosing one type from 18 total pokemon types
   const randomNum = Math.floor(Math.random() * 18) + 1;
-  console.log(randomNum);
   try {
+  // Fetching chosen type
   const res = await fetch(`https://pokeapi.co/api/v2/type/${randomNum}`);
-  data = await res.json();
-
-  console.log(data);
-
+  let data = await res.json();
   let counters = data.damage_relations.double_damage_from;
-
+  
+  // Pushing type names to list (types that deal double dmg against chosen type)
   counters.forEach(element => {
     counterArr.push(element.name);
   });
   
+  // Displaying chosen type
   document.querySelector("#typeName").textContent = data.name;
+
   }catch(error){
     console.log(error)
   }
@@ -84,8 +85,7 @@ async function makeReq() {
 
 makeReq()
 
-function buttonClick(type) {
-    
+function buttonClick(type) {    
     for(let i = 0; i < counterArr.length; i++) {
       if(counterArr[i] === type) {
         // console.log('Correct');
