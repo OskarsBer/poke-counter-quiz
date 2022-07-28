@@ -1,6 +1,7 @@
-# poke-counter-quiz
+# poke-counter-quiz app
 
-Simple app using web api.
+Simple app I made while practicing using web api's.
+Used to faster memorize Pokemon type counters (some types deal more damage to others).
 
+**Link to demo:**https://poke-quiz-app.netlify.app/
 Example version (16 July 2022)
-https://poke-quiz-app.netlify.app/
